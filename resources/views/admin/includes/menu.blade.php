@@ -37,7 +37,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">CRUD:</h6>
                 <a class="collapse-item" href="{!! route('admin.categories.index') !!}"><i class="fas fa-fw fa-list"></i> Index</a>
-                <a class="collapse-item" href="{!! route('admin.categories.index') !!}"><i class="fas fa-fw fa-plus"></i> Create</a>
+                <a class="collapse-item" href="{!! route('admin.categories.create') !!}"><i class="fas fa-fw fa-plus"></i> Create</a>
             </div>
         </div>
     </li>

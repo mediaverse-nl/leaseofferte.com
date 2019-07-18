@@ -27,12 +27,17 @@ $adminPathPrefix = 'admin';
 
 Route::middleware(['role:admin', 'auth'])->namespace('Admin\\')->name('admin.')->prefix($adminPathPrefix)->group(function () {
     Route::get('/', 'DashboardController')->name('dashboard');
-    Route::resource('/categories', 'PageController');
-    Route::resource('/products', 'PageController');
+    Route::resource('/categories', 'CategoryController');
+    Route::resource('/products', 'ProductController');
     Route::resource('/orders', 'PageController');
-    Route::resource('/filemanager', 'PageController');
     Route::resource('/text-manager', 'textController')->except(['edit', 'show', 'delete']);
     Route::resource('/pages', 'PageController');
+    Route::get('/activity-log', 'ActivityController@index')->name('activity.index');
+    Route::resource('/filemanager', 'FileManagerController')->only(['index']);
+});
+
+Route::group(['prefix' => '/laravel-filemanager', 'middleware' => ['web', 'role:admin']], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
 });
 
 Route::get($adminPathPrefix.'/login', 'Admin\LoginController@login')->name('admin.login');

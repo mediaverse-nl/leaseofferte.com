@@ -16,6 +16,21 @@
 
     <!-- Custom styles for this template-->
     <link href="/css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this page -->
+    <link href="/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+    <style>
+        .dataTable > thead > tr .no-sort::after,
+        .dataTable > thead > tr .no-sort::before
+        { display: none!important; }
+        .dataTable > thead > tr .no-sort
+        { pointer-events: none!important; cursor: default!important; width: 100px !important;}
+        .dataTable > tbody > tr .btn
+        {margin-left: 5px;}
+    </style>
+
+    @stack('css')
 </head>
 
 <body id="page-top">
@@ -25,7 +40,7 @@
         <div id="wrapper">
 
             <!-- Sidebar -->
-            @include('admin.components.menu')
+            @include('admin.includes.menu')
             <!-- End of Sidebar -->
 
             <!-- Content Wrapper -->
@@ -35,7 +50,7 @@
                 <div id="content">
 
                     <!-- Topbar -->
-                    @include('admin.components.nav-static-top')
+                    @include('admin.includes.nav-static-top')
                     <!-- End of Topbar -->
 
                     <!-- Begin Page Content -->
@@ -55,7 +70,7 @@
                 <!-- End of Main Content -->
 
                 <!-- Footer -->
-                @include('admin.components.footer')
+                @include('admin.includes.footer')
                 <!-- End of Footer -->
 
             </div>
@@ -108,12 +123,17 @@
     <script src="/js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
+    <script src="/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="/vendor/datatables/dataTables.bootstrap4.min.js"></script>
     <script src="/vendor/chart.js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->
     <script src="/js/demo/chart-area-demo.js"></script>
     <script src="/js/demo/chart-pie-demo.js"></script>
+    <script src="/js/demo/datatables-demo.js"></script>
     {{--<script src="{{ asset('js/app.js') }}"></script>--}}
+
+    @stack('scripts')
 </body>
 
 </html>
