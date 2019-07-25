@@ -10,17 +10,17 @@ class CreateCategoryForm extends Form
 {
     public function buildForm()
     {
+//        dd($this->getRequest());
         $this
             ->add('title', Field::TEXT, [
-                'rules' => 'required|min:1'
+                'rules' => 'required|min:1|unique:categories,title,'.$this->getRequest()->title.',id,category_id,'.$this->getRequest()->category_id,
             ])
-            ->add('description', Field::TEXTAREA, [
-                'rules' => 'max:160'
-            ])
-            ->add('category_id', 'form', [
-                'class' => 'App\Forms\CategoryForm',
-                'formOptions' => [],
-                'data' => ['categories' => array_merge([null => '-- select --'], Category::all()->pluck('title', 'id')->toArray())],
+            ->add('category_id', 'select', [
+                'empty_value' => '--- select category ---',
+                'choices' => Category::all()->pluck('title', 'id')->toArray(),
+                'rules' => 'unique:categories,category_id,'.$this->getRequest()->category_id.',id,title,'.$this->getRequest()->title,
+//                'rules' => 'required|unique:categories,id,'.$this->id.',NULL,id,title,'.$this->value,
+//                'unique:servers,ip,'.$this->id.',NULL,id,hostname,'.$request->input('hostname')
             ])
             ->add('images', 'standalone', [
                 'rules' => 'max:5000'

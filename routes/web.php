@@ -32,6 +32,7 @@ Route::middleware(['role:admin', 'auth'])->namespace('Admin\\')->name('admin.')-
     Route::resource('/orders', 'PageController');
     Route::resource('/text-manager', 'textController')->except(['edit', 'show', 'delete']);
     Route::resource('/pages', 'PageController');
+    Route::get('/menus', 'MenuController@index')->name('menu.index');
     Route::get('/activity-log', 'ActivityController@index')->name('activity.index');
     Route::resource('/filemanager', 'FileManagerController')->only(['index']);
 });

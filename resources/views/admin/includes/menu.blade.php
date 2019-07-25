@@ -27,19 +27,13 @@
         Interface
     </div>
 
-    <!-- Nav Item - Utilities Collapse Menu -->
+
+    <!-- Nav Item - Menus -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-            <i class="fas fa-fw fa-bars"></i>
-            <span>Categories</span>
+        <a class="nav-link" href="{!! route('admin.menu.index') !!}">
+            <i class="fas fa-fw fa-menu"></i>
+            <span>Menus</span>
         </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">CRUD:</h6>
-                <a class="collapse-item" href="{!! route('admin.categories.index') !!}"><i class="fas fa-fw fa-list"></i> Index</a>
-                <a class="collapse-item" href="{!! route('admin.categories.create') !!}"><i class="fas fa-fw fa-plus"></i> Create</a>
-            </div>
-        </div>
     </li>
 
     <!-- Nav Item - Utilities Collapse Menu -->

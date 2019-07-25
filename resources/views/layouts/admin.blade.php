@@ -20,6 +20,8 @@
     <!-- Custom styles for this page -->
     <link href="/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
+    {{--<script src="{{ asset('js/app.js') }}"></script>--}}
+
     <style>
         .dataTable > thead > tr .no-sort::after,
         .dataTable > thead > tr .no-sort::before
@@ -132,6 +134,8 @@
     <script src="/js/demo/chart-pie-demo.js"></script>
     <script src="/js/demo/datatables-demo.js"></script>
     {{--<script src="{{ asset('js/app.js') }}"></script>--}}
+
+    {!! Menu::scripts() !!}
 
     @stack('scripts')
 </body>

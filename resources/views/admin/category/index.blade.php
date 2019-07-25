@@ -4,7 +4,7 @@
 
 @section('content')
 
-    @component('admin.components.table', ['title' => 'Products'])
+    @component('admin.components.table', ['title' => 'Categories'])
         @slot('heading')
             <tr>
                 <th>title</th>
@@ -18,7 +18,7 @@
             @foreach($categories as $page)
                 <tr {!! $page->trashed() ? 'class="table-danger"' : ''!!}>
                     <td>{!! $page->title !!}</td>
-                    <td>{!! $page->category_id != null ? $page->category->title : '' !!}</td>
+                    <td>{!! $page->category_id !== null ? $page->category->title : '' !!}</td>
                     <td>{!! $page->created_at !!}</td>
                     <td>{!! $page->updated_at !!}</td>
                     <td>

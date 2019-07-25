@@ -17,13 +17,14 @@ class CreateCategoriesTable extends Migration
             $table->bigIncrements('id');
             $table->integer('category_id')->nullable()->unsigned();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null');
-            $table->string('images', 100);
+            $table->string('images', 100)->nullable();
             $table->string('title', 120);
-            $table->string('description', 5000);
-            $table->string('meta_title', 70);
-            $table->string('meta_description', 170);
+            $table->string('description', 5000)->nullable();
+            $table->string('meta_title', 70)->nullable();
+            $table->string('meta_description', 170)->nullable();
             $table->timestamps();
             $table->softDeletes();
+            $table->unique(['title', 'category_id']);
         });
     }
 
